@@ -54,11 +54,12 @@ x^2-2=0
 
 ```exce*
 =FZERO_BISECT(
-    LAMBDA(x,x^2-2*,
-    1,
-    2,
-    100
-)
+  LAMBDA(x,
+    x^2-2
+  ),
+  1,
+  2,
+  100)
 ```
 
 Res*lt:
