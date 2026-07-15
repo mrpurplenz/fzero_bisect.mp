@@ -39,7 +39,7 @@ FZERO_BISECT(
 | Niter | Number of bisection iterations |
 
 ## Definition
-The BISECTION formula can be added as a named formula with the following content entered as a new object called FZERO_BISECT in the 'Name Manager' located on the 'Formulas" ribbon in the 'defined names' section under 'Name Manager' copy the following intot he "refers to" box
+The BISECTION formula can be added as a named formula with the following content entered as a new object called FZERO_BISECT in the 'Name Manager' located on the 'Formulas" ribbon in the 'defined names' section under 'Name Manager' copy the following in to the "refers to" box
 ```excel
 =LAMBDA(f,lo,hi,Niter,LET(fa,f(lo),fb,f(hi),ITER,LAMBDA(self,k,a,b,fa,fb,LET(mid,(a+b)/2,fm,f(mid),IF(OR(k=0,fm=0),mid,IF(fa*fm < 0,self(self,k-1,a,mid,fa,fm),self(self,k-1,mid,b,fm,fb))))),ITER(ITER,Niter,lo,hi,fa,fb)))
 ```
