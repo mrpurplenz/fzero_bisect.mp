@@ -45,7 +45,13 @@ The BISECTION formula can be added as a named formula with the following content
 ```
 
 OR you can you can define it directly inline when you want to use it
-for example:
+for example, to find the root that lies between 0 and 10 for the equation:
+
+```math
+x^2-3=0
+```
+Using 100 bisections:
+
 ```excel
 =LET(
   BISECT,
