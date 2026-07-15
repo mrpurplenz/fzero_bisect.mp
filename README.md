@@ -109,7 +109,7 @@ Crank Slab Eigenvalue
 Solve:
 
 ```math
-\beat\tan(\beta)-Bi=0
+\beta\tan(\beta)-Bi=0
 ```
 
 ```excel
