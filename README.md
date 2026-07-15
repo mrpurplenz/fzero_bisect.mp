@@ -39,20 +39,31 @@ FZERO_BISECT(
 | Niter | Number of bisection iterations |
 
 ## Definition
-The BISECTION formula can be added as a named formula with the following content
+The BISECTION formula can be added as a named formula with the following content entered as a new object called FZERO_BISECT in the 'Name Manager' located on the 'Formulas" ribbon in the 'defined names' section under 'Name Manager' copy the following intot he "refers to" box
 ```excel
 =LAMBDA(f,lo,hi,Niter,LET(fa,f(lo),fb,f(hi),ITER,LAMBDA(self,k,a,b,fa,fb,LET(mid,(a+b)/2,fm,f(mid),IF(OR(k=0,fm=0),mid,IF(fa*fm < 0,self(self,k-1,a,mid,fa,fm),self(self,k-1,mid,b,fm,fb))))),ITER(ITER,Niter,lo,hi,fa,fb)))
 ```
 
+OR you can you can define it directly inline when you want to use it
+for example:
+```excel
+=LET(
+  BISECT,
+    LAMBDA(f,lo,hi,Niter,LET(fa,f(lo),fb,f(hi),ITER,LAMBDA(self,k,a,b,fa,fb,LET(mid,(a+b)/2,fm,f(mid),IF(OR(k=0,fm=0),mid,IF(fa*fm<0,self(self,k-1,a,mid,fa,fm),self(self,k-1,mid,b,fm,fb))))),ITER(ITER,Niter,lo,hi,fa,fb))),
+  BISECT(LAMBDA(x,x^2-3),0,10,100)
+  )
+```
+I recommend adding it to the name space as it's quite large
+
+
 ## Example 1
 
-*ind:
 
 ```math
 x^2-2=0
 ```
 
-```exce*
+```excel
 =FZERO_BISECT(
   LAMBDA(x,
     x^2-2
@@ -62,47 +73,48 @@ x^2-2=0
   100)
 ```
 
-Res*lt:
+Result:
 
 ```text
 1.414213562373095
-```*
+```
+
 ## Example 2
 
 Find:
 
 ```math
-\cos*x)-x=0
+\cos(x)-x=0
 ```
 
 ```excel
-=FZERO_BISECT*
+=FZERO_BISECT(
     LAMBDA(x,COS(x)-x),
     0,
-  * 1,
+    1,
     100
 )
 ```
 
 Result:
 
-```tex*
+```text
 0.739085133215161
 ```
 
-## Example*3
+## Example 3
 
 Crank Slab Eigenvalue
 
 Solve:
 
-*``math
-\lambda\tan(\lambda)-Bi=0
-`*`
+```math
+\beat\tan(\beta)-Bi=0
+``
 
 ```excel
 =FZERO_BISECT(
-    LAM**A(x,x*TAN(x)-Bi),
+    LAMBDA(x,x*TAN(x)-2),
     0.01,
     PI()/2,
     100
@@ -111,7 +123,7 @@ Solve:
 
 ## Notes
 
-- Implemented entirely using Excel LAMBDA functions.
+- Implemented entirely using native Excel LAMBDA functions.
 - Requires Microsoft Excel 365.
 - No VBA required.
 - No Solver required.
