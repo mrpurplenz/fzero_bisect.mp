@@ -110,7 +110,7 @@ Solve:
 
 ```math
 \beat\tan(\beta)-Bi=0
-``
+```
 
 ```excel
 =FZERO_BISECT(
