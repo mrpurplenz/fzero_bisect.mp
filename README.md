@@ -15,7 +15,7 @@ within a specified interval using the bisection method.
 The interval must bracket a root:
 
 ```math
-f(lo)f(hi)<0
+f(lo) \times f(hi)<0
 ```
 
 ## Syntax
